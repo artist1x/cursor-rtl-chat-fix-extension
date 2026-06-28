@@ -2,9 +2,10 @@
   "name": "cursor-rtl-chat-fix",
   "displayName": "Cursor RTL Chat Fix",
   "description": "Fixes Arabic/RTL/BiDi rendering in Cursor AI chat globally with backup and restore.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "publisher": "bsync-local",
   "license": "MIT",
+  "icon": "media/logo.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/artist1x/cursor-rtl-chat-fix-extension.git"
@@ -16,15 +17,48 @@
     "Other"
   ],
   "activationEvents": [
-    "onStartupFinished"
+    "onStartupFinished",
+    "onView:cursorRtl.panel"
   ],
   "main": "./out/extension.js",
   "contributes": {
+    "viewsContainers": {
+      "panel": [
+        {
+          "id": "cursorRtl",
+          "title": "Cursor RTL",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "cursorRtl": [
+        {
+          "type": "webview",
+          "id": "cursorRtl.panel",
+          "name": "RTL Fix",
+          "contextualTitle": "Cursor RTL Chat Fix"
+        }
+      ]
+    },
     "commands": [
+      {
+        "command": "cursorRtl.openPanel",
+        "title": "Open Cursor RTL Panel",
+        "category": "Cursor RTL",
+        "icon": {
+          "light": "media/icon.svg",
+          "dark": "media/icon.svg"
+        }
+      },
       {
         "command": "cursorRtl.applyFix",
         "title": "Cursor RTL: Apply Fix",
-        "category": "Cursor RTL"
+        "category": "Cursor RTL",
+        "icon": {
+          "light": "media/icon.svg",
+          "dark": "media/icon.svg"
+        }
       },
       {
         "command": "cursorRtl.checkStatus",
@@ -41,7 +75,26 @@
         "title": "Cursor RTL: Reapply After Cursor Update",
         "category": "Cursor RTL"
       }
-    ]
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "cursorRtl.openPanel"
+        },
+        {
+          "command": "cursorRtl.applyFix"
+        },
+        {
+          "command": "cursorRtl.checkStatus"
+        },
+        {
+          "command": "cursorRtl.restore"
+        },
+        {
+          "command": "cursorRtl.reapply"
+        }
+      ]
+    }
   },
   "scripts": {
     "compile": "tsc -p ./",

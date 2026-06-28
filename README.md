@@ -31,10 +31,14 @@ Then in Cursor:
 
 | Command | Purpose |
 |---|---|
+| **Cursor RTL panel** | Bottom panel tab with logo, status, and action buttons |
+| `Open Cursor RTL Panel` | Focus the RTL panel |
 | `Cursor RTL: Apply Fix` | Apply the RTL patch with backup |
 | `Cursor RTL: Check Status` | Show whether the patch is applied |
 | `Cursor RTL: Restore Original Cursor Files` | Remove patch and restore backup |
 | `Cursor RTL: Reapply After Cursor Update` | Reinstall RTL assets after Cursor update |
+
+The status bar shows `RTL` on the bottom-right. Click it to open the panel.
 
 ## Safety
 
