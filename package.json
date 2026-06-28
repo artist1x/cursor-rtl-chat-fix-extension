@@ -1,0 +1,57 @@
+{
+  "name": "cursor-rtl-chat-fix",
+  "displayName": "Cursor RTL Chat Fix",
+  "description": "Fixes Arabic/RTL/BiDi rendering in Cursor AI chat globally with backup and restore.",
+  "version": "1.0.0",
+  "publisher": "bsync-local",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/artist1x/cursor-rtl-chat-fix-extension.git"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "cursorRtl.applyFix",
+        "title": "Cursor RTL: Apply Fix",
+        "category": "Cursor RTL"
+      },
+      {
+        "command": "cursorRtl.checkStatus",
+        "title": "Cursor RTL: Check Status",
+        "category": "Cursor RTL"
+      },
+      {
+        "command": "cursorRtl.restore",
+        "title": "Cursor RTL: Restore Original Cursor Files",
+        "category": "Cursor RTL"
+      },
+      {
+        "command": "cursorRtl.reapply",
+        "title": "Cursor RTL: Reapply After Cursor Update",
+        "category": "Cursor RTL"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "npm run compile && vsce package --no-dependencies"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^3.2.1",
+    "typescript": "^5.3.3"
+  }
+}
